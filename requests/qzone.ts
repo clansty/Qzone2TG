@@ -1,11 +1,11 @@
 import axios from 'axios'
-import getCookies from './getCookies'
 import getGTk from '../utils/getGTk'
-import GetFeedRet from '../types/GetFeedRet'
+import GetFeedRet from '../types/GetFeedRet.'
+import Cookies from '../types/Cookies'
+import GetDetailRet from '../types/GetDetailRet'
 
 export default {
-    async getFeed(uin: number) {
-        const cookies = await getCookies()
+    async getFeed(cookies: Cookies, uin: number) {
         const gTk = getGTk(cookies.p_skey)
         console.log(cookies)
         console.log(gTk)
@@ -17,5 +17,17 @@ export default {
             },
             responseType: 'json',
         })).data.msglist as GetFeedRet[]
+    },
+
+    async getDetail(cookies: Cookies, uin: number, threadId: string) {
+        const gTk = getGTk(cookies.p_skey)
+        console.log(cookies)
+        console.log(gTk)
+        return ((await axios.get(`https://h5.qzone.qq.com/webapp/json/mqzone_detail/shuoshuo?g_tk=${gTk}&appid=311&uin=${uin}&count=20&refresh_type=31&cellid=${threadId}&subid=&format=json`, {
+            headers: {
+                Cookie: `p_uin=${cookies.p_uin}; p_skey=${cookies.p_skey};`,
+            },
+            responseType: 'json',
+        })).data as GetDetailRet).data
     },
 }

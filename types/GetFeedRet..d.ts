@@ -8,6 +8,7 @@ export default interface GetFeedRet {
     created_time: number;
     editMask: number;
     fwdnum: number;
+    // 是否省略号了
     has_more_con: number;
     isEditable: number;
     issigin: number;
@@ -25,6 +26,7 @@ export default interface GetFeedRet {
     t1_source: number;
     t1_subtype: number;
     t1_termtype: number;
+    // 唯一 id 了应该是
     tid: string;
     ugc_right: number;
     uin: number;

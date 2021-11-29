@@ -1,7 +1,7 @@
 import axios from 'axios'
 import config from '../providers/config'
 import getCharCount from '../utils/getCharCount'
-import Cookies from '../types/cookies'
+import Cookies from '../types/Cookies'
 
 export default async () => {
     const res = await axios.post(config.onebot.api + '/getCookies', {
