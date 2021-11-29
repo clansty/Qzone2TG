@@ -1,0 +1,10 @@
+onebot:
+  api: https://
+  auth:
+    username:
+    password:
+tgBotToken:
+forwards:
+  - qq:
+    tg:
+refreshInterval: 300
