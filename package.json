@@ -6,6 +6,7 @@
     "axios": "^0.24.0",
     "chalk": "4",
     "node-telegram-bot-api": "^0.54.0",
+    "oicq": "1.21.3",
     "yaml": "^1.10.2"
   },
   "devDependencies": {
